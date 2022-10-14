@@ -1,0 +1,16 @@
+<h1>{{movie.movieTitle}}</h1>
+<a routerLink="/Movie"> Back to movie page</a>
+<br>
+<h3>Comments:</h3>
+<div *ngIf="commentList.length>0">
+    <div *ngFor="let comment of commentList">
+      <app-comment [comment]="comment"></app-comment> 
+      
+
+    </div>
+
+</div>
+
+<input type="text" [(ngModel)]="commentInput">
+
+<button (click)="postComment()"> Send </button>

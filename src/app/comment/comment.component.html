@@ -1,0 +1,32 @@
+<div class="Main">
+    <div class="Top">
+
+        <button class="xbutton" (click)="hideButtonClicked()" > X </button>
+        <p>
+            {{comment.message}}
+        </p>
+    </div>
+
+    <div  *ngIf="!hidebottom" class="Bottom">
+
+        <button (click)="replyButtonClicked()"> Reply </button>
+        
+        <div *ngIf="isreplying" class="ReplyInput">
+
+            <input type="text" [(ngModel)]= "commentInput" class="form_input">
+            <button (click)="postComment()" > Send</button>
+
+        </div>
+        <div *ngIf="comment.replies.length>0" class="replies">
+            
+            <div *ngFor="let comment of comment.replies">
+              <app-comment [comment]="comment"></app-comment> 
+              
+        
+            </div>
+        
+        </div>
+    </div>
+
+
+</div>
